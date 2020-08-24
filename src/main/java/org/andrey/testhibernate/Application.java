@@ -84,7 +84,7 @@ public class Application {
         List<Item> items = null;
 
         transaction = session.beginTransaction();
-        items = (List<Item>) session.createQuery("FROM Items").list();
+        items = (List<Item>) session.createQuery("FROM Item").list();
         transaction.commit();
         session.close();
         return items;
