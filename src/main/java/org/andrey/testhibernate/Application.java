@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.swing.text.html.HTMLDocument;
 import java.util.*;
+import java.util.jar.JarOutputStream;
 
 public class Application {
 
@@ -19,6 +20,7 @@ public class Application {
         System.out.println("Hello world!");
         Application app = new Application();
         app.sessionFactory = new Configuration().configure().buildSessionFactory();
+//        app.sessionFactory = new Configuration().setProperties(new Properties);
 
         List<Item> items = new ArrayList<>();
         items.add(app.addItem());
@@ -48,6 +50,7 @@ public class Application {
         session.save(item);
         transaction.commit();
         session.close();
+        System.out.println("---------------create item with id = " + item.getId());
 
         return item;
     }
@@ -62,6 +65,7 @@ public class Application {
         session.save(bid);
         transaction.commit();
         session.close();
+        System.out.println("---------------create bid with id = "+ bid.getId());
         return bid;
     }
 

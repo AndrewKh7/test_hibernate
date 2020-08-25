@@ -10,15 +10,15 @@ public class Bid {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="bid_id")
-    Integer id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
-    Item item;
+    private Item item;
 
-    String key;
+    private String key;
 
-    public Bid(){}
+    protected Bid(){}
 
     public Bid(String key,  Item item){
         if ( item == null) throw new IllegalArgumentException("Item cannot be null in the bid constructor");

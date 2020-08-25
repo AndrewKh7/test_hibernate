@@ -13,11 +13,11 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="item_id")
-    Integer id;
+    private Integer id;
 
-    @OneToMany(mappedBy = "item")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "item")
     @MapKeyColumn(name = "key")
-    protected Map<String,Bid> bids = new HashMap<>();
+    private Map<String,Bid> bids = new HashMap<>();
 
     public Map<String, Bid> getBids() {
         return bids;
